@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Games</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+    <link rel="icon" type="image/png" href="icons/logo.png" size="196x196" />
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.icon').click(function () {
+                $('.icon').toggleClass('active');
+                $('.left-menu').toggleClass('active');
+                $('.frame').addClass('active');
+            })
+
+            $('.btn').click(function () {
+                $('.icon').addClass('visible');
+                $('.icon').click();
+                $('.cover').addClass('disable');
+                $('.body').addClass('active');
+            })
+
+            $('.game').click(function () {
+                    $('.icon').click();
+                    $('#content').focus();
+            })
+        })
+
+        function handle(name) {
+            $('#content').show();
+            $('#content').attr('src',"Game/" + name + '.html')
+        }; 
+
+    </script>
+</head>
+
+<body class="body">
+    <div class="cover">
+        <p>Welcome.</p>
+        <a class=btn>Play A Game!</a>
+    </div>
+    <DIV class="frame">
+        <IFRAME id="content"></IFRAME>
+    </DIV>
+	<div class="icon">
+        <div class="hamburger"></div>
+    </div>
+    <div class="left-menu">
+        <div class="logo" onclick="document.location.reload();"></div>
+        
+        <div class="games">
+            <ul class="gamelinks">
+                <li>
+                    <img src="icons/breakout.png" />
+                    <a class="game" onclick = "handle('BreakOut');">BreakOut</a>
+                </li>
+                <li>
+                    <img src="icons/tetris.png" />
+                    <a class="game" onclick = "handle('tetris');">Tetris</a>
+                </li>
+                <li>
+                    <img src="icons/snake.png" />
+                    <a class="game" onclick = "handle('snake');">Snake</a>
+                </li>
+                <li>
+                    <img src="icons/x.png" class="xo"/>
+                    <img src="icons/o.png" class="xo"/>
+                    <a class="game" onclick = "handle('ttt');">Tic Tac Toe</a>
+                </li>
+                <li>
+                    <img src="icons/2.png" class="tzfe"/>
+                    <img src="icons/0.png" class="tzfe"/>
+                    <img src="icons/4.png" class="tzfe"/>
+                    <img src="icons/8.png" class="tzfe"/>
+                    <a class="game" onclick="handle('2048/index');">2048</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+
+</body>
+
+</html>
